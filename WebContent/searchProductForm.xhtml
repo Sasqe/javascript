@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+
+	<ui:composition>
+	<style>
+        * {
+            box-sizing: border-box;
+        }
+    	div {
+            padding: 10px;
+            background-color: #f6f6f6;
+            overflow: hidden;
+        }
+    	input[type=text], textarea, select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        input[type=button]{ 
+            width: auto;
+            float: right;
+            cursor: pointer;
+            padding: 7px;
+        }
+    </style>
+    <div id="header" align="center">
+	<ui:insert name="header">
+	<ui:include src= "/layouts/commonHeader.xhtml" />
+	</ui:insert>
+	</div>
+	<h:form>
+		<div>
+			  <h:inputText id = "input" value="#{inputID.input}" title="" p:placeholder="Enter an ID to Search"  />
+		</div> 		
+			<h:commandButton action="#{searchProductController.onSearch(dao, products)}" value="Search" />
+			
+			<h:messages></h:messages>
+		</h:form>
+		<div id="footer" align="center">
+		<ui:insert name="footer">
+		<ui:include src= "/layouts/commonFooter.xhtml" />
+		</ui:insert>
+		</div>
+	</ui:composition>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough"> 
+
+<h:head>
+	<ui:define name="title">JSF Login Page</ui:define>
+	<style>
+        * {
+            box-sizing: border-box;
+        }
+    	div {
+            padding: 10px;
+            background-color: #f6f6f6;
+            overflow: hidden;
+        }
+    	input[type=text], textarea, select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        input[type=button]{ 
+            width: auto;
+            float: right;
+            cursor: pointer;
+            padding: 7px;
+        }
+    </style>
+</h:head> 
+<body> 
+	
+	<center>
+	<div id="header" align="center">
+	<ui:insert name="header">
+	<ui:include src= "/layouts/commonHeader.xhtml" />
+	<h1>Login Page</h1>
+	</ui:insert>
+	</div>
+		<div id="content" align="center">
+		<ui:insert name="content">
+			<h:form>
+				<div>
+			 <h:inputText id = "userName" value="#{user.userName}" title="" p:placeholder="Enter your username"/>
+		</div>
+		<div>	
+			<h:inputText id = "passWord" value="#{user.passWord}" title="" p:placeholder="Enter your password"/>
+		</div>
+		<div>
+		<h:inputText id = "debug" title= "" p:placeholder="#{user.passWord}"/>
+		</div>
+		<div>
+		<h:inputText id = "debug2" title= "" p:placeholder="#{user.userName}"/>
+		</div>
+	 		
+			<h:commandButton action="#{formController.onLogin(loginService, products)}" value="Login" />
+			
+			<h:messages></h:messages>
+		</h:form>
+			
+		</ui:insert>
+		</div>
+		<div id="footer" align="center">
+		<ui:insert name="footer">
+		<ui:include src= "/layouts/commonFooter.xhtml" />
+		</ui:insert>
+		</div>
+	</center>
+</body> 
+</html>

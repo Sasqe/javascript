@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+
+	<ui:composition>
+	<style>
+        * {
+            box-sizing: border-box;
+        }
+    	div {
+            padding: 10px;
+            background-color: #f6f6f6;
+            overflow: hidden;
+        }
+    	input[type=text], textarea, select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        input[type=button]{ 
+            width: auto;
+            float: right;
+            cursor: pointer;
+            padding: 7px;
+        }
+    </style>
+	<h:form>
+		<div>
+			  <h:inputText id = "firstName" value="#{user.firstName}" title="" p:placeholder="Enter a first name"  />
+		</div>
+		<div>	
+		   	  <h:inputText id = "lastName" value="#{user.lastName}" title="" p:placeholder="Enter your last name"/>
+		</div>
+		<div>
+			  <h:inputText id = "email" value="#{user.email}" title="" p:placeholder="Enter your email"/>   
+		</div>   
+		<div>
+		  	 <h:inputText id = "phoneNumber" value="#{user.phoneNumber}" title="" p:placeholder="Enter your phone number"/>
+		</div>
+		<div>
+			 <h:inputText id = "userName" value="#{user.userName}" title="" p:placeholder="Enter your username"/>
+		</div>
+		<div>	
+			<h:inputText id = "passWord" value="#{user.passWord}" title="" p:placeholder="Enter your password"/>
+		</div>
+	
+	 		
+			<h:commandButton action="#{registerController.onSubmit(loginService)}" value="Register" />
+			
+			<h:messages></h:messages>
+		</h:form>
+	</ui:composition>
+</html>

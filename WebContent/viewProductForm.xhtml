@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head>
+	<title>JSF Response Page</title>
+	<style>
+	.product-table {
+	border:1px black solid;
+	}
+	.product-table-odd{
+	background: #EEE
+	}
+	.product-table-header {
+	font-weight:bold;
+	}
+	</style>
+</h:head> 
+<body> 
+<div id="header" align="center">
+	<ui:insert name="header">
+	<ui:include src= "/layouts/commonHeader.xhtml" />
+	</ui:insert>
+	</div>
+	<h3>View results: </h3>
+		<h:dataTable name="listofproducts" value="#{products.results}" var = "product" styleClass="product-table" headerClass= "product-table-header"
+		 rowClasses = "product-table-odd, product-table-even">
+		<h:column>
+		<f:facet name = "header">Product Number</f:facet>
+		#{product.productNumber}
+		</h:column>
+		<h:column>
+		<f:facet name = "header">Product Name</f:facet>
+		#{product.productName}
+		</h:column>
+		<h:column>
+		<f:facet name = "header">Price</f:facet>
+		#{product.price}
+		</h:column>
+		<h:column>
+		<f:facet name = "header">Size</f:facet>
+		#{product.size}
+		</h:column>
+		<h:column>
+		<f:facet name = "header">Color</f:facet>
+		#{product.color}
+		</h:column>
+		
+		</h:dataTable>
+		<h:form id = "toedit">
+		<h:commandButton action="#{searchProductController.onReset(products)}" value="Return To Main Page" />
+		</h:form>
+	<center>
+	<div id="footer" align="center">
+		<ui:insert name="footer">
+		<ui:include src= "/layouts/commonFooter.xhtml" />
+		</ui:insert>
+		</div>
+	</center>
+</body> 
+</html>
